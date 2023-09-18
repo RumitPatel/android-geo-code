@@ -10,7 +10,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.io.IOException
-import java.util.*
+import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
