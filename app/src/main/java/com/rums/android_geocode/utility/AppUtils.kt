@@ -15,7 +15,7 @@ class AppUtils {
                 val geocoder = Geocoder(context, Locale.getDefault())
                 val addresses = geocoder.getFromLocation(latitude, longitude, 5)
                 var addressString = ""
-                for (i in addresses.indices) {
+                for (i in addresses?.indices!!) {
                     val index = (i + 1).toString() + ""
                     addressString =
                         if (index.isNotEmpty()) "$addressString\nindex: $index\n" else addressString
