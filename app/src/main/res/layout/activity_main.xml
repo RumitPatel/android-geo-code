@@ -7,42 +7,43 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TableRow
+    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:contentDescription="@null" />
 
-        <EditText
-            android:id="@+id/etLatitude"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:text="23.0972046" />
-
-        <EditText
-            android:id="@+id/etLongitude"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:text="72.5404878" />
-    </TableRow>
-
-    <Button
-        android:id="@+id/btnClickHere"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="Click Here to get near address" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:visibility="gone">
 
-        <TextView
-            android:id="@+id/tvAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_launcher_background" />
+
+            <com.github.chrisbanes.photoview.PhotoView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/lucid_png" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@null"
+                android:src="@drawable/ic_launcher_background" />
+        </LinearLayout>
+
     </ScrollView>
 </LinearLayout>

@@ -3,55 +3,68 @@ package com.rums.android_geocode.utility
 import android.content.Context
 import android.location.Geocoder
 import android.text.TextUtils
+import android.widget.ImageView
+import android.widget.Toast
+import com.bumptech.glide.Glide
+import com.rums.android_geocode.model.ModelInfo
 import java.io.IOException
 import java.util.Locale
 
 class AppUtils {
 
     companion object {
-        fun getAddressFromLatLong(context: Context, latitude: Double, longitude: Double): String {
 
-            try {
-                val geocoder = Geocoder(context, Locale.getDefault())
-                val addresses = geocoder.getFromLocation(latitude, longitude, 5)
-                var addressString = ""
-                for (i in addresses?.indices!!) {
-                    val index = (i + 1).toString() + ""
-                    addressString =
-                        if (index.isNotEmpty()) "$addressString\nindex: $index\n" else addressString
-
-                    val postalCode = addresses[i].postalCode
-                    addressString =
-                        if (!postalCode.isNullOrEmpty()) "$addressString postalCode: $postalCode\n" else addressString
-
-                    val adminArea = addresses[i].adminArea
-                    addressString =
-                        if (!adminArea.isNullOrEmpty()) "$addressString adminArea: $adminArea\n" else addressString
-
-                    val subAdminArea = addresses[i].subAdminArea
-                    addressString =
-                        if (!subAdminArea.isNullOrEmpty()) "$addressString subAdminArea: $subAdminArea\n" else addressString
-
-                    val locality = addresses[i].locality
-                    addressString =
-                        if (!locality.isNullOrEmpty()) "$addressString locality: $locality\n" else addressString
-
-                    val subLocality = addresses[i].subLocality
-                    addressString =
-                        if (!subLocality.isNullOrEmpty()) "$addressString subLocality: $subLocality\n" else addressString
-
-                    val phone = addresses[i].phone
-                    addressString =
-                        if (!phone.isNullOrEmpty()) "$addressString phone: $phone\n" else addressString
-                }
-                if (!TextUtils.isEmpty(addressString)) {
-                    return addressString
-                }
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-
-            return ""
-        }
     }
+}
+
+fun Context.toast(message: String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
+
+fun Context.setImagesWithDrawable(imageView: ImageView, drawablePath: Int?) {
+
+    Glide.with(this)
+        .load(drawablePath)
+        .into(imageView)
+}
+
+fun getStaticModels() {
+
+}
+
+fun getQuestionVideos(): ArrayList<ModelInfo?> {
+    val arrVideoQuestions: ArrayList<ModelInfo?> = ArrayList<ModelInfo?>().apply {
+        add(
+            ModelInfo(
+                "Tissue",
+                2875,
+                1428,
+                2875 + 200,
+                1428 + 200
+            )
+        )
+
+        add(
+            ModelInfo(
+                "Cell",
+                3600,
+                1700,
+                3600 + 200,
+                1700 + 200
+            )
+        )
+
+        add(
+            ModelInfo(
+                "Types",
+                2687,
+                1931,
+                2687 + 200,
+                1931 + 200
+            )
+        )
+
+    }
+
+    return arrVideoQuestions
 }
