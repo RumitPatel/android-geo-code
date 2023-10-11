@@ -65,7 +65,7 @@ class MainActivity : AppCompatActivity() {
 
 
         imageView.setImage(ImageSource.asset("lucid_jpeg.jpeg"))
-        imageView.setImage(ImageSource.resource(R.drawable.lucid_jpeg))
+        imageView.setImage(ImageSource.resource(R.drawable.thirty_twenty_jpg))
         imageView.setOnTouchListener { _, motionEvent -> gestureDetector.onTouchEvent(motionEvent) }
 
     }
