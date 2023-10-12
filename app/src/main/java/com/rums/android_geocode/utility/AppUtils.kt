@@ -3,9 +3,13 @@ package com.rums.android_geocode.utility
 import android.content.Context
 import android.location.Geocoder
 import android.text.TextUtils
+import android.widget.Toast
 import java.io.IOException
 import java.util.Locale
 
+fun Context.toast(message:String) {
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+}
 class AppUtils {
 
     companion object {
